@@ -1,20 +1,11 @@
 const findTheOldest = function(people) {
-  const age = [];
-  let maxAgePosition = 0;
+  const age = people.map((item) => {
+    return item.yearOfDeath
+    ? item.yearOfDeath - item.yearOfBirth
+    : new Date().getFullYear() - item.yearOfBirth;
+  });
 
-  for (let i = 0; i < people.length; i++) {
-    if (people[i].yearOfDeath === undefined) {
-      age.push(new Date().getFullYear() - people[i].yearOfBirth);
-    } else {
-      age.push(people[i].yearOfDeath - people[i].yearOfBirth);
-    }
-  }
-
-  for (let i = 0; i < age.length; i++) {
-    if (age[i] > age[maxAgePosition]) {
-      maxAgePosition = i;
-    }
-  }
+  let maxAgePosition = age.indexOf(Math.max(...age));
 
   return people[maxAgePosition];
 };
