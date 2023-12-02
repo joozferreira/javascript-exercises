@@ -8,7 +8,7 @@ const palindromes = function (string) {
 
   let reversedAdjusted = adjustedString.split("").reverse().join("");
 
-  return (adjustedString === reversedAdjusted) ? true : false;
+  return adjustedString === reversedAdjusted;
 };
 
 // Do not edit below this line
