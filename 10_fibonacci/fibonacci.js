@@ -1,13 +1,9 @@
 const fibonacci = function(item) {
-  if (parseInt(item) < 1) {
-    return 'OOPS';
-  }
+  const position = parseInt(item);
 
-  if (parseInt(item) === 1 || parseInt(item) === 2) {
-    return 1;
-  } else {
-    return fibonacci(parseInt(item) - 1) + fibonacci(parseInt(item) - 2);
-  }
+  return position < 1 ? "OOPS" : 
+        position < 3 ? 1 : // Covers the case of element 1 and 2 which should be 1
+        fibonacci(position - 1) + fibonacci(position - 2);
 };
 
 // Do not edit below this line
